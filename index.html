@@ -63,7 +63,7 @@
 
     <section class="hero">
         <div class="container">
-            <h1 data-i18n="hero.title">Mathematical programming<br>meets documentation.</h1>
+            <h1 data-i18n="hero.title">Math-Driven Coding with Automatic Documentation</h1>
             <p data-i18n="hero.subtitle">MADOLA integrates mathematical notation, computation, documentation, and code
                 generation within a single file. It’s not another wheel — it’s the hub connecting them all.</p>
 
@@ -81,21 +81,73 @@
                 </div>
                 <div class="demo-content">
                     <div class="code-pane">
-                        <pre><code>@h2{
-Calculating π Using the Leibniz Series}
-
-sum := 0.0;
-for i in 0...10000 {
-    sum := sum + ((-1)^i) / ((2*i)+1);
+                        <div class="pane-title" data-i18n="demo.source_title">Source Code</div>
+                        <pre><code class="language-madola"><span class="madola-decorator">@h2</span>{
+Funciton to calculate π Using the Leibniz Series
 }
-\pi := sum * 4;</code></pre>
+
+<span class="madola-decorator">@gen_cpp</span>
+<span class="madola-keyword">fn</span> <span class="madola-function">calcPi</span>(n) {
+    sum <span class="madola-operator">:=</span> <span class="madola-number">0.0</span>;
+    <span class="madola-keyword">for</span> i <span class="madola-keyword">in</span> <span class="madola-number">0</span><span class="madola-operator">...</span>n{
+        sum <span class="madola-operator">:=</span> sum <span class="madola-operator">+</span> ((<span class="madola-operator">-</span><span class="madola-number">1</span>)<span class="madola-operator">^</span>i) <span class="madola-operator">/</span> ((<span class="madola-number">2</span><span class="madola-operator">*</span>i)<span class="madola-operator">+</span><span class="madola-number">1</span>);
+    }
+    <span class="madola-keyword">return</span> sum <span class="madola-operator">*</span> <span class="madola-number">4</span>;
+}
+                </code></pre>
                     </div>
                     <div class="preview-pane">
-                        <h3 data-i18n="demo.title">Calculating π Using the Leibniz Series</h3>
-                        <div class="math-display">
-                            $$ \sum_{i=0}^{10000} \frac{(-1)^i}{2i+1} $$
-                        </div>
-                        <p><strong data-i18n="demo.result">Result:</strong> π ≈ 3.14149...</p>
+                        <div class="pane-title" data-i18n="demo.output_title">HTML Output</div>
+<h2>
+Funciton to calculate π Using the Leibniz Series
+</h2>
+<div class="math-expression align-expression">
+$$\begin{array}{l}
+\textbf{function } calcPi(n) \\
+\left|
+\begin{array}{l}
+\quad sum =0 \\
+\quad \textbf{for } i \textbf{ in } 0...n \\
+\quad \left|
+\begin{array}{l}
+\quad sum =sum + \frac{{(-1)}^{i}}{\left(2 \cdot i + 1\right)} \\
+\end{array}
+\right. \\
+\quad \text{return } sum \cdot 4
+\end{array}
+\right.
+\end{array}$$
+                    </div>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <div class="demo-header">
+                    <div class="dot" style="background:#ff5f56"></div>
+                    <div class="dot" style="background:#ffbd2e"></div>
+                    <div class="dot" style="background:#27c93f"></div>
+                </div>
+                <div class="demo-content">
+                    <div class="code-pane">
+                        <div class="pane-title" data-i18n="demo.cpp_title">Generated C++ and can be compiled to WASM module</div>
+                        <pre><code class="language-cpp"><span class="hljs-meta">#include &lt;cmath&gt;</span>
+
+<span class="hljs-type">double</span> <span class="hljs-title function_">calcPi</span>(<span class="hljs-type">double</span> n)
+{
+    <span class="hljs-type">double</span> sum = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n; i++) {
+        sum = (sum + (<span class="hljs-built_in">pow</span>(-<span class="hljs-number">1</span>, i) / ((<span class="hljs-number">2</span> * i) + <span class="hljs-number">1</span>)));
+    }
+    <span class="hljs-keyword">return</span> (sum * <span class="hljs-number">4</span>);
+}
+                </code></pre>
+                    </div>
+                    <div class="code-pane">
+                        <div class="pane-title" data-i18n="demo.import_title">Import WASM module and gain 20X speed</div>
+                        <pre><code class="language-madola"><span class="madola-keyword">from</span> example <span class="madola-keyword">import</span> calcPi <span class="madola-keyword">as</span> calc;
+
+x1 <span class="madola-operator">:=</span> <span class="madola-function">calc</span>(<span class="madola-number">1000</span>);
+<span class="madola-function">print</span>(x1);
+                </code></pre>
                     </div>
                 </div>
             </div>

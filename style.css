@@ -229,6 +229,10 @@ select.lang-select {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
+.demo-preview + .demo-preview {
+    margin-top: 30px;
+}
+
 .demo-header {
     background: var(--bg-alt-color);
     padding: 10px 20px;
@@ -252,25 +256,148 @@ select.lang-select {
 .code-pane,
 .preview-pane {
     flex: 1;
-    padding: 20px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.pane-title {
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-light);
+    background-color: var(--bg-color);
 }
 
 .code-pane {
     background-color: var(--bg-alt-color);
     border-right: 1px solid var(--border-color);
+}
+
+.code-pane pre {
+    flex: 1;
+    padding: 20px;
+    margin: 0;
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
     color: var(--text-color);
+    overflow: auto;
+}
+
+/* Syntax Highlighting for MADOLA */
+.language-madola .madola-decorator {
+    color: #e06c75;
+    font-weight: 600;
+}
+
+.language-madola .madola-keyword {
+    color: #c678dd;
+    font-weight: 600;
+}
+
+.language-madola .madola-function {
+    color: #61afef;
+    font-weight: 500;
+}
+
+.language-madola .madola-number {
+    color: #d19a66;
+}
+
+.language-madola .madola-operator {
+    color: #56b6c2;
+}
+
+/* Syntax Highlighting for C++ */
+.language-cpp .hljs-keyword {
+    color: #c678dd;
+    font-weight: 600;
+}
+
+.language-cpp .hljs-type {
+    color: #e5c07b;
+    font-weight: 500;
+}
+
+.language-cpp .hljs-title.function_ {
+    color: #61afef;
+    font-weight: 500;
+}
+
+.language-cpp .hljs-number {
+    color: #d19a66;
+}
+
+.language-cpp .hljs-built_in {
+    color: #56b6c2;
+    font-weight: 500;
+}
+
+.language-cpp .hljs-meta {
+    color: #98c379;
+    font-weight: 500;
+}
+
+/* Light theme overrides for better contrast */
+body:not(.dark-theme) .language-madola .madola-decorator {
+    color: #d73a49;
+}
+
+body:not(.dark-theme) .language-madola .madola-keyword {
+    color: #6f42c1;
+}
+
+body:not(.dark-theme) .language-madola .madola-function {
+    color: #005cc5;
+}
+
+body:not(.dark-theme) .language-madola .madola-number {
+    color: #e36209;
+}
+
+body:not(.dark-theme) .language-madola .madola-operator {
+    color: #005cc5;
+}
+
+body:not(.dark-theme) .language-cpp .hljs-keyword {
+    color: #6f42c1;
+}
+
+body:not(.dark-theme) .language-cpp .hljs-type {
+    color: #d73a49;
+}
+
+body:not(.dark-theme) .language-cpp .hljs-title.function_ {
+    color: #005cc5;
+}
+
+body:not(.dark-theme) .language-cpp .hljs-number {
+    color: #e36209;
+}
+
+body:not(.dark-theme) .language-cpp .hljs-built_in {
+    color: #005cc5;
+}
+
+body:not(.dark-theme) .language-cpp .hljs-meta {
+    color: #22863a;
 }
 
 .preview-pane {
     background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.preview-pane > *:not(.pane-title) {
+    padding: 20px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--text-color);
 }
 
 .math-display {
